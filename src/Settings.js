@@ -1,15 +1,7 @@
 'use strict';
 
 class Settings {
-    /**
-     * @param {Object} params - Параметры игры.
-     * @param {Number} params.rowsCount - количество строк игрового поля.
-     * @param {Number} params.colsCount - количество колонок игрового поля.
-     * @param {Number} params.speed - скорость перемещения змейки.
-     * @param {Number} params.winLength - какую длину надо наесть, чтобы выиграть.
-     * @throws {Error} если переданы не верные настройки выбрасывается
-     * соответствующая ошибка.
-     */
+   
     init({rowsCount = 27, colsCount = 29, speed = 5, winLength = 50} = {}) {
         
         if (rowsCount < 10 || rowsCount > 30) {
