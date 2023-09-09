@@ -1,7 +1,6 @@
 'use strict';
 
 class Settings {
-   
     init({rowsCount = 27, colsCount = 29, speed = 5, winLength = 50} = {}) {
         
         if (rowsCount < 10 || rowsCount > 30) {

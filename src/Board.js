@@ -4,7 +4,7 @@ class Board {
     constructor() {
         this.boardEl = document.getElementById('game');
     }
-    
+
     init(settings, snake) {
         this.settings = settings;
         this.snake = snake;
@@ -29,12 +29,10 @@ class Board {
         });
     }
 
-   
     clearFood() {
         document.querySelector('.food').classList.remove('food');
     }
 
-    
     clearSnake() {
         const tdElems = document.querySelectorAll('.snakeBody');
         tdElems.forEach(function(td) {
@@ -42,7 +40,6 @@ class Board {
         });
     }
 
-    
     getCellEl(x, y) {
         return this.boardEl.querySelector(`tr:nth-child(${y}) td:nth-child(${x})`);
     }
@@ -63,7 +60,6 @@ class Board {
     didSnakeEatFood() {
         return this.boardEl.querySelector('.food').classList.contains('snakeBody');
     }
-
 
    getRandomEmptyTd() {
        const emptyTdElements = document.querySelectorAll('td:not(.snakeBody):not(.food)');

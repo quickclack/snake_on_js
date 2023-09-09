@@ -11,12 +11,10 @@ class Snake {
 
         this.direction = 'down';
     }
-
     
     init(settings) {
         this.settings = settings;
     }
-
    
     changeDirection(newDirection) {
         if (!this.possibleDirections.includes(newDirection)) {
@@ -27,7 +25,6 @@ class Snake {
         }
         this.direction = newDirection;
     }
-
     
     isPassedOppositeDirection(newDirection) {
         if (this.direction == 'down' && newDirection == 'up') {
@@ -45,11 +42,11 @@ class Snake {
         }
         return false;
     }
-
    
     performStep() {
         let currentHeadCoords = this.body[0];
         let newHeadCoords = {...currentHeadCoords};
+
         switch (this.direction) {
             case "down":
                 newHeadCoords.y++;
@@ -64,7 +61,6 @@ class Snake {
                 newHeadCoords.x++;
                 break;
         }
-
 
         if (newHeadCoords.x > this.settings.colsCount) {
             newHeadCoords.x = 1;
@@ -86,11 +82,9 @@ class Snake {
         this.body.pop();
     }
 
-
     increaseBody() {
         let bodyLastCell = this.body[this.body.length - 1];
         let newBodyLastCell = {...bodyLastCell};
         this.body.push(newBodyLastCell);
     }
-
 }

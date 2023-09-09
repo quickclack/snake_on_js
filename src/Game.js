@@ -7,18 +7,21 @@ class Game {
     }
 
     
-    init(settings, status, board, snake, controls, score) {
+    init(settings, status, board, snake, controls, score, audio, crash) {
         this.settings = settings;
         this.status = status;
         this.board = board;
         this.controls = controls;
         this.snake = snake;
         this.score = score;
+        this.audio = audio;
+        this.crash = crash;
     }
 
     
     start() {
         if (this.status.isPaused()) {
+            this.audio.play();
             this.status.setPlaying();
             this.tickIdentifier = setInterval(this.doTick.bind(this), 1000 / this.settings.speed);
         }
@@ -27,6 +30,7 @@ class Game {
     
     pause() {
         if (this.status.isPlaying()) {
+            this.audio.pause();
             this.status.setPaused();
             this.stopGame();
         }
@@ -35,6 +39,8 @@ class Game {
     doTick() {
         this.snake.performStep();
         if (this.isSnakeSteppedOntoItself()) {
+            this.audio.pause();
+            this.crash.play();
             this.stopGame();
             this.setMessage('Вы проиграли');
             return;

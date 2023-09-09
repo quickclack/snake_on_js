@@ -3,11 +3,11 @@ const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 
 function buildJs() {
-    return gulp.src('./src/*.js') // папка где лежат все js файлы
+    return gulp.src('./src/*.js')
     .pipe(sourcemaps.init())
-    .pipe(concat('app.js')) // это как будет называться собраный файл
+    .pipe(concat('app.js'))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./dist/')); // папка куда будет складывать наш файл
+    .pipe(gulp.dest('./dist/'));
 }
 
 gulp.watch('./src/*.js', buildJs);

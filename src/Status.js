@@ -5,7 +5,6 @@ class Status {
         this.condition = 'paused';
     }
 
-
     setPlaying() {
         this.condition = 'playing';
     }
@@ -13,7 +12,6 @@ class Status {
     setPaused() {
         this.condition = 'paused';
     }
-
 
     isPlaying() {
         return this.condition === 'playing';

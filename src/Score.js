@@ -6,12 +6,10 @@ class Score {
         this.toWinEl = document.querySelector('.toWin');
     }
 
-    
     init(settings) {
         this.settings = settings;
     }
 
-    
     renderCurrentScore(score) {
         this.currentEl.textContent = score;
     }
